@@ -1,11 +1,13 @@
 <script lang="ts">
 import type { Death, DeathKey } from './types'
 
+import { startCase } from 'lodash'
+
 export let deaths: Death[]
 export let columns: DeathKey[]
 
 $: rows = [
-  columns.join(','),
+  columns.map(startCase).join(','),
   ...deaths.map(
     ({ name, age, date }) => `${name},${age},${date.format('YYYY-MM-DD')}`
   ),
