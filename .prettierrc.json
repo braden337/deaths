@@ -1,0 +1,7 @@
+{
+  "singleQuote": true,
+  "arrowParens": "avoid",
+  "semi": false,
+  "svelteAllowShorthand": true,
+  "svelteIndentScriptAndStyle": false
+}
