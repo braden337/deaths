@@ -60,7 +60,7 @@ function sort(col: DeathKey) {
   <h1>☠️</h1>
 {/if}
 
-<style lang="scss">
+<style lang="postcss">
 h1 {
   text-align: center;
 }
@@ -70,8 +70,8 @@ table {
   border-spacing: 0;
   max-width: 500px;
 
-  th,
-  td {
+  & th,
+  & td {
     padding: 0.5rem;
     vertical-align: top;
 
@@ -80,7 +80,7 @@ table {
     }
   }
 
-  th {
+  & th {
     position: relative;
     &::after {
       content: attr(data-arrow);
@@ -91,24 +91,24 @@ table {
     }
   }
 
-  thead {
+  & thead {
     background-color: black;
     color: white;
   }
 
-  tbody {
-    tr {
+  & tbody {
+    & tr {
       &:nth-of-type(2n + 1) {
         background-color: lightgray;
       }
 
       & + tr {
-        td {
+        & td {
           border-top: none;
         }
       }
 
-      td {
+      & td {
         border: 1px solid darkgray;
         & + td {
           border-left: none;

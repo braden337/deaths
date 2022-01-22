@@ -34,7 +34,7 @@ let deaths = [
   <Download {deaths} {columns} />
 </footer>
 
-<style lang="scss">
+<style>
 :global(*) {
   box-sizing: border-box;
   margin: 0;

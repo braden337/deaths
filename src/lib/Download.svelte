@@ -27,7 +27,7 @@ function csv() {
 
 <button on:click={csv}>Download CSV</button>
 
-<style lane="scss">
+<style lang="postcss">
 button {
   padding: 0.5rem;
   border: none;
