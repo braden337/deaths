@@ -1,6 +1,7 @@
 <script lang="ts">
 import type { Death, DeathKey } from './types'
 
+import dayjs from 'dayjs'
 import { startCase } from 'lodash'
 
 export let deaths: Death[]
@@ -9,7 +10,8 @@ export let columns: DeathKey[]
 $: rows = [
   columns.map(startCase).join(','),
   ...deaths.map(
-    ({ name, age, date }) => `${name},${age},${date.format('YYYY-MM-DD')}`
+    ({ name, age, date }) =>
+      `${name},${age},${dayjs(date).format('YYYY-MM-DD')}`
   ),
 ]
 
@@ -25,15 +27,24 @@ function csv() {
 }
 </script>
 
-<button on:click={csv}>Download CSV</button>
+<button on:click={csv} disabled={!deaths.length}>Download CSV</button>
 
 <style lang="postcss">
 button {
   padding: 0.5rem;
   border: none;
   background-color: crimson;
+  opacity: 0.9;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
   color: white;
   font-weight: bold;
   font-size: 1rem;
+  &:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+  }
 }
 </style>

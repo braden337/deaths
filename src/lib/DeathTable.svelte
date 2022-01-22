@@ -1,6 +1,7 @@
 <script lang="ts">
 import type { Death, DeathKey, Direction } from './types'
 
+import dayjs from 'dayjs'
 import { orderBy, startCase } from 'lodash'
 
 export let deaths: Death[]
@@ -47,7 +48,7 @@ function sort(col: DeathKey) {
         <tr>
           {#each columns as key}
             {#if key === 'date'}
-              <td>{death[key].format('YYYY')}</td>
+              <td>{dayjs(death[key]).format('YYYY')}</td>
             {:else}
               <td>{death[key]}</td>
             {/if}

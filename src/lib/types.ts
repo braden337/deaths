@@ -3,7 +3,7 @@ import type { Dayjs } from 'dayjs'
 export interface Death {
   name: string
   age: number
-  date: Dayjs
+  date: string
 }
 
 export type DeathKey = keyof Death

@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { DeathKey } from './lib/types'
+import type { Death, DeathKey } from './lib/types'
 
 import DeathTable from './lib/DeathTable.svelte'
 import Download from './lib/Download.svelte'
@@ -13,26 +13,33 @@ const ymd = (date: string) => dayjs(date, 'YYYY-MM-DD')
 
 const columns: DeathKey[] = ['name', 'age', 'date']
 
-let deaths = [
-  { name: 'Jimi Hendrix', age: 27, date: ymd('1970-09-18') },
-  { name: 'Chris Farley', age: 33, date: ymd('1997-12-18') },
-  { name: 'Mitch Hedberg', age: 37, date: ymd('2005-03-30') },
-  { name: 'Norm MacDonald', age: 61, date: ymd('2021-09-14') },
-  { name: 'Bob Saget', age: 65, date: ymd('2022-01-09') },
-]
+let deaths: Death[] = []
+
+async function loadDeaths() {
+  try {
+    const res = await fetch(`${import.meta.env.VITE_API_BASE}/deaths.json`)
+    deaths = res.status === 200 ? ((await res.json()) as Death[]) : []
+  } catch (e) {
+    deaths = []
+  }
+}
 </script>
 
-<header>
-  <h1>Deaths ⚰️</h1>
-</header>
+{#await loadDeaths()}
+  <h1>Loading...</h1>
+{:then}
+  <header>
+    <h1>Deaths ⚰️</h1>
+  </header>
 
-<main>
-  <DeathTable bind:deaths {columns} />
-</main>
+  <main>
+    <DeathTable bind:deaths {columns} />
+  </main>
 
-<footer>
-  <Download {deaths} {columns} />
-</footer>
+  <footer>
+    <Download {deaths} {columns} />
+  </footer>
+{/await}
 
 <style>
 :global(*) {
