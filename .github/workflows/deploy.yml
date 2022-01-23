@@ -41,11 +41,11 @@ jobs:
         run: pnpm format
 
       - name: Check if any code was formatted
-        id: changes
+        id: afterFormat
         uses: UnicornGlobal/has-changes-action@v1.0.11
 
       - name: Push formatted code
-        if: steps.changes.outputs.changed == 1
+        if: steps.afterFormat.outputs.changed == 1
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
