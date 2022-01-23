@@ -28,11 +28,10 @@ async function loadDeaths() {
 {#await loadDeaths()}
   <h1>Loading...</h1>
 {:then}
-  <header>
-    <h1>Deaths ⚰️</h1>
-  </header>
-
   <main>
+    <header>
+      <h1>Deaths ⚰️</h1>
+    </header>
     <DeathTable bind:deaths {columns} />
   </main>
 
@@ -41,7 +40,7 @@ async function loadDeaths() {
   </footer>
 {/await}
 
-<style>
+<style lang="postcss">
 :global(*) {
   box-sizing: border-box;
   margin: 0;
@@ -57,18 +56,41 @@ async function loadDeaths() {
   height: -webkit-fill-available;
 }
 
+:global(body) {
+  background-color: #6272a4;
+}
+
 :global(#app) {
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
+  height: 100vh;
+  height: -webkit-fill-available;
   display: grid;
+  grid-template-rows: 1fr auto;
   justify-content: center;
-  align-content: center;
-  grid-gap: 1rem;
-  padding: 1rem;
+  align-content: space-between;
 }
 
 header,
 footer {
   text-align: center;
+}
+
+header {
+  padding-bottom: 1rem;
+  color: #50fa7b;
+}
+
+main {
+  margin: env(safe-area-inset-top, 1rem) 0 0;
+  width: 100vw;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+footer {
+  padding: 1rem;
+  width: 100%;
+  background-color: #6272a4;
+  position: relative;
+  z-index: 1;
 }
 </style>

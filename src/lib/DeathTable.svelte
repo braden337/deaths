@@ -69,7 +69,7 @@ h1 {
 table {
   text-align: left;
   border-spacing: 0;
-  max-width: 500px;
+  width: 100%;
 
   & th,
   & td {
@@ -93,24 +93,32 @@ table {
   }
 
   & thead {
-    background-color: black;
-    color: white;
+    background-color: #f8f8f2;
+    color: #282a36;
+    position: sticky;
+    top: 0;
   }
 
   & tbody {
+    color: #f8f8f2;
     & tr {
       &:nth-of-type(2n + 1) {
-        background-color: lightgray;
+        background-color: #282a36;
+      }
+
+      &:nth-of-type(2n) {
+        background-color: #44475a;
       }
 
       & + tr {
         & td {
-          border-top: none;
+          border-color: #f8f8f2;
+          border-style: solid;
+          border-width: 1px 0 0 0;
         }
       }
 
       & td {
-        border: 1px solid darkgray;
         & + td {
           border-left: none;
         }
