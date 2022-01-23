@@ -3,31 +3,13 @@ name: Deploy
 on:
   workflow_dispatch:
 
-  push:
-    branches:
-      - master
-    paths:
-      - 'src/**'
-      - '.github/workflows/deploy.yml'
-
-  pull_request:
-    branches:
-      - master
-    paths:
-      - 'src/**'
+  repository_dispatch:
+    types: [formatted]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Set timezone
-        uses: szenius/set-timezone@v1.0
-        with:
-          timezoneLinux: 'America/Chicago'
-
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: Cache pnpm modules
         uses: actions/cache@v2
         with:
@@ -41,23 +23,6 @@ jobs:
         with:
           version: 6.0.2
           run_install: true
-
-      - name: Format code
-        run: pnpm format
-
-      - name: See if any code changed
-        id: checkFiles
-        run: echo ::set-output name=changed::$(git status --porcelain | wc -l)
-
-      - name: Push changed code
-        if: steps.checkFiles.outputs.changed > 0
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          files_changed=`git diff --stat | pcregrep -o '[0-9]+\sfiles?'`
-          git add .
-          git commit -m "formatted $files_changed"
-          git push
 
       - name: Build dist folder
         run: pnpm build
