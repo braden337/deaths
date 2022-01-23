@@ -49,11 +49,11 @@ jobs:
         run: pnpm format
 
       - name: Check if any code was formatted
-        id: afterFormat
-        run: echo ::set-output name=changed::$(git diff --name-only | wc -l)
+        id: checkFiles
+        run: echo ::set-output name=changed::$(git status --porcelain | wc -l)
 
       - name: Push formatted code
-        if: steps.afterFormat.outputs.changed > 0
+        if: steps.checkFiles.outputs.changed > 0
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
