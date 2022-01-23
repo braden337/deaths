@@ -45,12 +45,13 @@ jobs:
         uses: UnicornGlobal/has-changes-action@v1.0.11
 
       - name: Push formatted code
-        if: steps.changes.outputs.changed > 0
+        if: steps.changes.outputs.changed == 1
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
+          files_changed=`git diff --stat | grep -o '[0-9]\+ files\?'`
           git add .
-          git commit -m "formatted ${{steps.change.outputs.changed}} files"
+          git commit -m "formatted $files_changed"
           git push
 
       - name: Build dist folder
