@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install tools
-        run: apt-get install pcregrep
+        run: sudo apt-get install pcregrep
 
       - name: Set timezone
         uses: szenius/set-timezone@v1.0
