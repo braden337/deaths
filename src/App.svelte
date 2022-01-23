@@ -9,9 +9,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat'
 
 dayjs.extend(customParseFormat)
 
-const columns: DeathKey[] =
-
-['name', 'age', 'date']
+const columns: DeathKey[] = ['name', 'age', 'date']
 
 let deaths: Death[] = []
 
