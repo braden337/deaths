@@ -1,6 +1,6 @@
 # Deaths
 
-tracking the deaths of some of my favorite people
+tracking the deaths of some cool people
 
 ## Development
 
