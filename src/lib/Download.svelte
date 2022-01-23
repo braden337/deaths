@@ -33,15 +33,17 @@ function csv() {
 button {
   padding: 0.5rem;
   border: none;
-  background-color: crimson;
+  background-color: #ff5555;
   opacity: 0.9;
+  color: #f8f8f2;
+  font-weight: bold;
+  font-size: 1rem;
+
   &:hover {
     opacity: 1;
     cursor: pointer;
   }
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
+
   &:disabled {
     opacity: 0.25;
     cursor: not-allowed;

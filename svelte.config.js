@@ -6,7 +6,7 @@ export default {
   // for more information about preprocessors
   preprocess: sveltePreprocess({
     postcss: {
-      plugins: [presetEnv({ stage: 1 })],
+      plugins: [presetEnv({ stage: 0 })],
     },
   }),
 }
