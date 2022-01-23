@@ -52,8 +52,11 @@ jobs:
         id: afterFormat
         uses: UnicornGlobal/has-changes-action@v1.0.11
 
+      - name: Chack manually if any code was files_changed
+        run: changed=`git diff --name-only | wc -l`
+
       - name: Push formatted code
-        if: steps.afterFormat.outputs.changed == 1
+        if: $changed > 0
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
