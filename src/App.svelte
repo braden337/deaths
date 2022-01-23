@@ -68,7 +68,6 @@ async function loadDeaths() {
   display: grid;
   grid-template-rows: 1fr auto;
   justify-content: center;
-  align-content: space-between;
 }
 
 header,
@@ -82,9 +81,8 @@ header {
 }
 
 main {
-  margin: env(safe-area-inset-top, 1rem) 0 0;
+  margin-top: env(safe-area-inset-top, 1rem);
   width: 100vw;
-  height: 100%;
   overflow-y: scroll;
 }
 
@@ -92,7 +90,5 @@ footer {
   padding: 1rem;
   width: 100%;
   background-color: #6272a4;
-  position: relative;
-  z-index: 1;
 }
 </style>

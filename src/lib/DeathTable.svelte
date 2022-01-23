@@ -48,7 +48,7 @@ function sort(col: DeathKey) {
         <tr>
           {#each columns as key}
             {#if key === 'date'}
-              <td>{dayjs(death[key]).format('YYYY')}</td>
+              <td>{dayjs(death[key]).format("MMM D 'YY")}</td>
             {:else}
               <td>{death[key]}</td>
             {/if}
@@ -79,6 +79,10 @@ table {
     &:nth-of-type(n + 2) {
       text-align: center;
     }
+
+    &:nth-of-type(3) {
+      text-align: right;
+    }
   }
 
   & th {
@@ -87,6 +91,7 @@ table {
       content: attr(data-arrow);
       position: absolute;
       left: 0.5rem;
+      right: 0.5rem;
       top: 0;
       font-size: 0.5rem;
     }
