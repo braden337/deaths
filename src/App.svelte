@@ -24,7 +24,11 @@ async function loadDeaths() {
 </script>
 
 {#await loadDeaths()}
-  <h1>Loading...</h1>
+  <main>
+    <header>
+      <h1>Loading...</h1>
+    </header>
+  </main>
 {:then}
   <main>
     <header>
@@ -74,7 +78,7 @@ footer {
 
 header {
   padding-bottom: 1rem;
-  color: #50fa7b;
+  color: #f8f8f2;
 }
 
 main {
