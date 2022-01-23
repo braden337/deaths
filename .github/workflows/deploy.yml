@@ -54,7 +54,7 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          files_changed=`git diff --stat | grep -o '[0-9]\+ files\?'`
+          files_changed=`git diff --stat | pcregrep -o '[0-9]+\sfiles?'`
           git add .
           git commit -m "formatted $files_changed"
           git push
