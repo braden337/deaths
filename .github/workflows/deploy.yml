@@ -31,15 +31,32 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
 
-      - uses: pnpm/action-setup@v2.0.1
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.0.1
         with:
           version: 6.0.2
           run_install: true
 
-      - name: Build Project
+      - name: Format code with prettier
+        run: pnpm format
+
+      - name: Check if any code was formatted
+        id: changes
+        uses: UnicornGlobal/has-changes-action@v1.0.11
+
+      - name: Push formatted code
+        if: steps.changes.outputs.changed > 0
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "formatted ${{steps.change.outputs.changed}} files"
+          git push
+
+      - name: Build dist folder
         run: pnpm build
 
-      - name: Publish to surge.sh
+      - name: Publish dist to Surge
         uses: dswistowski/surge-sh-action@v1.0.1
         with:
           domain: 'deaths.surge.sh'
