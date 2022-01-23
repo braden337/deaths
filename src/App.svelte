@@ -16,7 +16,7 @@ let deaths: Death[] = []
 async function loadDeaths() {
   try {
     const res = await fetch(`${import.meta.env.VITE_API_BASE}/deaths.json`)
-    deaths = res.status === 200 ? ((await res.json()) as Death[]) : []
+    deaths = res.status == 200 ? ((await res.json()) as Death[]) : []
   } catch (e) {
     deaths = []
   }
