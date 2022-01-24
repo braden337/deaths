@@ -85,7 +85,11 @@ header {
 main {
   margin-top: env(safe-area-inset-top, 1rem);
   width: 100vw;
-  overflow-y: scroll;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 footer {
