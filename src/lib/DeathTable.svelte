@@ -14,7 +14,18 @@ let direction: Direction =
 
 $: localStorage.setItem('key', key)
 $: localStorage.setItem('direction', direction)
-$: deaths = orderBy(deaths, [key], direction)
+
+$: {
+  const sortOrder = [key]
+  const directionOrder: Direction[] = [direction]
+
+  if (key === 'age') {
+    sortOrder.push('date')
+    directionOrder.push(direction)
+  }
+
+  deaths = orderBy(deaths, sortOrder, directionOrder)
+}
 
 const changeDirection = () => (direction = direction === 'asc' ? 'desc' : 'asc')
 
