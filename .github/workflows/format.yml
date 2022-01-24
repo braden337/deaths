@@ -61,8 +61,8 @@ jobs:
           git commit -m "formatted $files_changed"
           git push
 
-      - name: Dispatch formatted
+      - name: Dispatch deploy
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          event-type: formatted
+          event-type: deploy
