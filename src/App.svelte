@@ -43,6 +43,8 @@ async function loadDeaths() {
 {/await}
 
 <style lang="postcss">
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&family=Source+Sans+Pro:wght@400;700&display=swap');
+
 :global(*) {
   box-sizing: border-box;
   margin: 0;
@@ -51,7 +53,7 @@ async function loadDeaths() {
 
 :global(:root) {
   font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Source Sans Pro', Verdana, Arial, Helvetica, sans-serif;
 }
 
 :global(html, body) {

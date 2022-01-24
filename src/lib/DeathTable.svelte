@@ -59,7 +59,7 @@ function sort(col: DeathKey) {
         <tr>
           {#each columns as key}
             {#if key === 'date'}
-              <td>{dayjs(death[key]).format("MMM D 'YY")}</td>
+              <td>{dayjs(death[key]).format("MMM DD 'YY")}</td>
             {:else}
               <td>{death[key]}</td>
             {/if}
@@ -135,6 +135,10 @@ table {
       }
 
       & td {
+        &:nth-of-type(3) {
+          font-family: 'Source Code Pro', 'Lucida Console', Courier, monospace;
+        }
+
         & + td {
           border-left: none;
         }
