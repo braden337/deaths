@@ -8,8 +8,8 @@ cleanupOutdatedCaches()
 
 precacheAndRoute(self.__WB_MANIFEST)
 
-registerRoute('https://live.railingcorners.com/deaths.json', new NetworkFirst())
 registerRoute(
-  'https://fonts.googleapis.com/css2?family=Source+Code+Pro&family=Source+Sans+Pro:wght@400;700&display=swap',
-  new CacheFirst()
+  `${import.meta.env.VITE_API_BASE}/deaths.json`,
+  new NetworkFirst()
 )
+registerRoute(`${import.meta.env.VITE_GOOGLE_FONT}`, new CacheFirst())
