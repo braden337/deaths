@@ -7,6 +7,6 @@ tracking the deaths of some cool people
 clone this repo then run
 
 ```sh
-pnpm i
-pnpm dev -- --host 0.0.0.0
+pnpm install
+pnpm dev
 ```
