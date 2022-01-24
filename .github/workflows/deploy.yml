@@ -23,7 +23,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
 
-      - name: Setup pnpm
+      - name: Setup pnpm package manager
         uses: pnpm/action-setup@v2.0.1
         with:
           version: 6.0.2
