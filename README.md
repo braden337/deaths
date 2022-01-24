@@ -1,10 +1,10 @@
 # Deaths
 
-tracking the deaths of some cool people
+Tracking the deaths of some cool people
 
 ## Development
 
-clone this repo then run
+Clone this repo then run
 
 ```sh
 pnpm install
