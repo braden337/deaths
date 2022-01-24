@@ -22,6 +22,7 @@ specifiers:
   workbox-precaching: ^6.4.2
   workbox-routing: ^6.4.2
   workbox-strategies: ^6.4.2
+  workbox-window: ^6.4.2
 
 dependencies:
   dayjs: 1.10.7
@@ -47,6 +48,7 @@ devDependencies:
   workbox-precaching: 6.4.2
   workbox-routing: 6.4.2
   workbox-strategies: 6.4.2
+  workbox-window: 6.4.2
 
 packages:
 
