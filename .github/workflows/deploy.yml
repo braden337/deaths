@@ -15,7 +15,7 @@ jobs:
         with:
           ref: ${{ github.event.client_payload.ref }}
 
-      - name: Cache pnpm modules
+      - name: Use cached pnpm modules
         uses: actions/cache@v2
         with:
           path: ~/.pnpm-store

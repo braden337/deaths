@@ -27,7 +27,7 @@ jobs:
         with:
           timezoneLinux: 'America/Chicago'
 
-      - name: Cache pnpm modules
+      - name: Use cached pnpm modules
         uses: actions/cache@v2
         with:
           path: ~/.pnpm-store
