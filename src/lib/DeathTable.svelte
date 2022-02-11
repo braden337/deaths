@@ -99,6 +99,7 @@ table {
   & th {
     position: relative;
     cursor: pointer;
+    user-select: none;
     &::after {
       content: attr(data-arrow);
       position: absolute;
