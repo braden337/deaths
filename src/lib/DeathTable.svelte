@@ -98,6 +98,7 @@ table {
 
   & th {
     position: relative;
+    cursor: pointer;
     &::after {
       content: attr(data-arrow);
       position: absolute;
